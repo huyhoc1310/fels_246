@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: localhost
+  username: root
+  password: pass
+
+development:
+  <<: *default
+  database: fels246_development
+
+test:
+  <<: *default
+  database: fels246_test
+
+production:
+  <<: *default
+  database: fels246

@@ -49,4 +49,5 @@ node_modules/
 
 /test
 /config/database.yml
+/config/application.yml
 .idea/

@@ -15,14 +15,45 @@
           </li>
         </ul>
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-          <li class="nav-item d-none d-lg-block ml-lg-4">
-            <%= link_to root_path, class: "btn btn-neutral btn-icon" do %>
-              <span class="btn-inner--icon">
-                <i class="fa fa-user-circle mr-2"></i>
-              </span>
-              <span class="nav-link-inner--text"><%= t ".profile" %></span>
-            <% end %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <%= link_to edit_user_registration_path,
+                class: "btn btn-neutral btn-icon" do %>
+                <span class="btn-inner--icon">
+                  <i class="fa fa-user-circle mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text"><%= t ".profile" %></span>
+              <% end %>
+            </li>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <%= link_to destroy_user_session_path,
+                class: "btn btn-outline-info btn-icon", method: :delete do %>
+                <span class="btn-inner--icon">
+                  <i class="fa fa-sign-out mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text"><%= t ".logout" %></span>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <%= link_to new_user_session_path,
+                class: "btn btn-outline-success btn-icon" do %>
+                <span class="btn-inner--icon">
+                  <i class="fa fa-sign-in mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text"><%= t ".signin" %></span>
+              <% end %>
+            </li>
+            <li class="nav-item d-none d-lg-block ml-lg-4">
+              <%= link_to new_user_registration_path,
+                class: "btn btn-neutral btn-icon" do %>
+                <span class="btn-inner--icon">
+                  <i class="fa fa-user-plus mr-2"></i>
+                </span>
+                <span class="nav-link-inner--text"><%= t ".signup" %></span>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

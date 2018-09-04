@@ -6,7 +6,10 @@ en:
       words: "Words"
       category: "Category"
       lessons: "Lessons"
+      signin: "Sign in"
+      signup: "Sign up"
       profile: "Profile"
+      logout: "Log out"
     footer:
       contact: "Contact"
       about: "About us"
@@ -17,4 +20,51 @@ en:
       welcome: "A free and open source e-learning web application."
       sign_up: "Sign up"
       sign_in: "Sign in"
-      
+  devise:
+    sessions:
+      new:
+        start: "Start now"
+        signin_with: "Sign in with"
+        or_signin_with: "Or sign in with credentials"
+        forgot_pass: "Forgot your password?"
+        not_receive_confirm: "Didn't receive confirmation?"
+    registrations:
+      new:
+        get_started: "Get Started For Free"
+        create: "Create Account"
+      edit:
+        edit_user: "Edit user"
+        text: "Currently waiting confirmation for:"
+        change: "Change"
+        cancel_account: "Cancel my account"
+        unhappy: "Unhappy?"
+        delete: "Delete"
+        back: "Back"
+    confirmations:
+      new:
+        resend_confirm: "Resend confirmation instructions"
+        resend: "Resend"
+        forgot_pass: "Forgot your password?"
+    mailer:
+      confirmation_instructions:
+        text: "You can confirm your account email through the link below:"
+        confirm_account: "Confirm my account!"
+      email_changed:
+        text_1: "We're contacting you to notify you that your email is being changed to "
+        text_2: "We're contacting you to notify you that your email has been changed to "
+      password_change:
+        text: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        text_1: "Someone has requested a link to change your password. You can do this through the link below."
+        text_2: "If you didn't request this, please ignore this email."
+        text_3: "Your password won't change until you access the link above and create a new one."
+        change_pass: "Change my password"
+    passwords:
+      new:
+        forgot: "Forgot your password?"
+        send_me: "Send me instructions"
+        not_receive_confirm: "Didn't receive confirmation?"
+      edit:
+        change: "Change your password"
+        change_my_pass: "Change password"
+        not_receive_confirm: "Didn't receive confirmation?"

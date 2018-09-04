@@ -1,0 +1,30 @@
+<header class="header-global">
+  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+    <div class="container">
+      <button class="btn btn-1 btn-outline-success" type="button"><%= t ".brand" %></button>
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item mx-2">
+            <%= link_to t(".words"), root_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item mx-2">
+            <%= link_to t(".category"), root_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item mx-2">
+            <%= link_to t(".lessons"), root_path, class: "nav-link text-light" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          <li class="nav-item d-none d-lg-block ml-lg-4">
+            <%= link_to root_path, class: "btn btn-neutral btn-icon" do %>
+              <span class="btn-inner--icon">
+                <i class="fa fa-user-circle mr-2"></i>
+              </span>
+              <span class="nav-link-inner--text"><%= t ".profile" %></span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,38 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row row-grid align-items-center mb-5">
+      <div class="col-lg-6">
+        <h3 class="text-primary font-weight-light mb-2"><%= t ".framgia" %></h3>
+        <h4 class="mb-0 font-weight-light"><%= t ".logan" %></h4>
+      </div>
+      <div class="col-lg-6 text-lg-center btn-wrapper">
+        <%= link_to "https://facebook.com", class: "btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" do %>
+          <i class="fa fa-facebook-square"></i>
+        <% end %>
+        <%= link_to "https://github.com/framgia", class: "btn btn-neutral btn-icon-only btn-github btn-round btn-lg" do %>
+          <i class="fa fa fa-github"></i>
+        <% end %>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center justify-content-md-between">
+      <div class="col-md-6">
+        <div class="copyright">
+          © 2018
+          <%= link_to "Framgia", "http://recruit.framgia.vn" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <ul class="nav nav-footer justify-content-end">
+          <li class="nav-item">
+            <%= link_to t(".contact"), "http://recruit.framgia.vn/lien-he/", class: "lead" %>
+          </li>
+          &nbsp;
+          <li class="nav-item">
+            <%= link_to t(".about"), "http://recruit.framgia.vn", class: "lead" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

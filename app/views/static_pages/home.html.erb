@@ -1,0 +1,18 @@
+<section class="section section-lg section-hero section-shaped">
+  <%= render "shared/br_circles" %>
+  <div class="container shape-container d-flex align-items-center py-lg text-white">
+    <div class="col px-0">
+      <div class="row align-items-center justify-content-center text-white">
+        <div class="col-lg-6 text-center">
+          <h1 class="text-white"><%= t "layouts.header.brand" %></h1>
+          <p class="lead text-white"><%= t ".welcome" %></p>
+          <div class="btn-wrapper mt-5">
+            <button class="btn btn-1 btn-primary" type="button"><%= t ".sign_up" %></button>
+            <button class="btn btn-1 btn-success" type="button"><%= t ".sign_in" %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/separator" %>
+</section>

@@ -1,0 +1,67 @@
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="bg-secondary shadow border-0">
+          <div class="px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <h4><%= t ".change" %></h4>
+            </div>
+            <%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
+
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-unlock-alt"></i>
+                    </span>
+                  </div>
+                  <%= f.password_field :password, class: "form-control",
+                    placeholder: "New password (6 characters minimum)",
+                    autofocus: true, autocomplete: "new-password" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-repeat"></i>
+                    </span>
+                  </div>
+                  <%= f.password_field :password_confirmation,
+                    class: "form-control",
+                    placeholder: "Confirm new password", autocomplete: "off" %>
+                </div>
+              </div>
+
+              <div class="actions text-center">
+                <%= f.submit t(".change_my_pass"), class: "btn btn-primary my-4" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12 text-right">
+            <small>
+              <%= link_to t(".not_receive_confirm"),
+                new_confirmation_path(resource_name), class: "text-light" %>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

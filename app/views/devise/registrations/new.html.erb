@@ -13,33 +13,50 @@
     <div class="row justify-content-center">
       <div class="col-lg-5">
         <div class="card bg-secondary shadow border-0">
-          <div class="px-lg-5 py-lg-5">
+          <div class="card-header bg-white pb-5">
             <div class="text-center text-muted mb-4">
               <h3><%= t ".get_started" %></h3>
             </div>
+            <div class="text-muted text-center mb-3">
+              <h6><%= t ".signup_with" %></h6>
+            </div>
+            <div class="btn-wrapper text-center">
+              <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-neutral btn-icon" do %>
+                <span class="btn-inner--icon">
+                  <%= image_tag("google") %>
+                </span>
+              <% end %>
+              <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-neutral btn-icon" do %>
+                <span class="btn-inner--icon">
+                  <%= image_tag("facebook") %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+          <div class="px-lg-5 py-lg-5">
             <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
               <%= devise_error_messages! %>
-
+              <div class="text-center text-muted mb-4">
+                <h6><%= t ".register" %></h6>
+              </div>
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                   </div>
                   <%= f.text_field :name, class: "form-control",
-                    placeholder: "Name", autofocus: true, autocomplete: "name" %>
+                                   placeholder: "Name", autofocus: true, autocomplete: "name" %>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                   </div>
                   <%= f.email_field :email, class: "form-control",
-                    placeholder: "Email", autofocus: true, autocomplete: "email" %>
+                                    placeholder: "Email", autofocus: true, autocomplete: "email" %>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -48,11 +65,10 @@
                     </span>
                   </div>
                   <%= f.password_field :password, class: "form-control",
-                    placeholder: "Password (6 characters minimum)",
-                    autocomplete: "new-password" %>
+                                       placeholder: "Password (6 characters minimum)",
+                                       autocomplete: "new-password" %>
                 </div>
               </div>
-
               <div class="form-group">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -61,11 +77,10 @@
                     </span>
                   </div>
                   <%= f.password_field :password_confirmation, class: "form-control",
-                    placeholder: "Password confirmation",
-                    autocomplete: "new-password" %>
+                                       placeholder: "Password confirmation",
+                                       autocomplete: "new-password" %>
                 </div>
               </div>
-
               <div class="actions text-center">
                 <%= f.submit t(".create"), class: "btn btn-primary mt-4" %>
               </div>

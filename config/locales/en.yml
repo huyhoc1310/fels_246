@@ -32,6 +32,8 @@ en:
       new:
         get_started: "Get Started For Free"
         create: "Create Account"
+        signup_with: "Sign up with"
+        register: "or register new account"
       edit:
         edit_user: "Edit user"
         text: "Currently waiting confirmation for:"

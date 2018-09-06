@@ -1,0 +1,16 @@
+<%= form_for [:admin, @category], remote: true do |f| %>
+  <div class="modal-body">
+    <%= f.label :name, class: "text-default" %>
+    <%= f.text_field :name, required: true, class: "form-control",
+      autofocus: true %>
+
+    <%= f.label :description, class: "text-default" %>
+    <%= f.text_area :description, required: true, class: "form-control",
+      autofocus: true %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t(".cancel"), class: "btn btn-danger text-default col-md-3",
+      data: {dismiss: "modal"} %>
+    <%= f.submit t(".create"), class: "btn btn-success text-default col-md-3" %>
+  </div>
+<% end %>

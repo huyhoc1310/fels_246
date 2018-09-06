@@ -70,3 +70,26 @@ en:
         change: "Change your password"
         change_my_pass: "Change password"
         not_receive_confirm: "Didn't receive confirmation?"
+  admin:
+    categories:
+      form:
+        cancel: "Cancel"
+        create: "Submit"
+      new:
+        title: "New category"
+      edit:
+        title: "Edit category"
+  categories:
+    index:
+        add_category: "Add category"
+    category:
+      edit: "Edit"
+      delete: "Delete"
+      you_sure: "You sure?"
+      learn_more: "Learn more"
+  flashs:
+    create_category_success: "Create new category successlly!"
+    not_found_category: "Category not found!"
+    category_updated: "Category is updated!"
+    category_deleted: "Category deleted!"
+    fail_delete_category: "Delete category failed!"

@@ -1,0 +1,6 @@
+model:
+  categories:
+    name:
+      maximum: 50
+    description:
+      maximum: 150

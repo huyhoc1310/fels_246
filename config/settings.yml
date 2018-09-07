@@ -1,0 +1,2 @@
+image_format: "image/jpeg,image/gif,image/png"
+image_size: [400, 400]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_055838) do
+ActiveRecord::Schema.define(version: 2018_09_06_043016) do
 
   create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_055838) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url"
+    t.string "image"
     t.string "imageable_type"
     t.bigint "imageable_id"
     t.datetime "created_at", null: false
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_055838) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "meaning"
     t.index ["category_id"], name: "index_words_on_category_id"
     t.index ["language_id"], name: "index_words_on_language_id"
   end

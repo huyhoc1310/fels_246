@@ -1,0 +1,11 @@
+<div class="modal-dialog modal-info modal-dialog-centered modal-">
+  <div class="modal-content bg-gradient-info">
+    <div class="modal-header">
+      <h5 class="modal-title text-default"><%= t ".title" %></h5>
+      <%= link_to "#", class: "close btn", data: {dismiss: "modal"} do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    </div>
+    <%= render "form" %>
+  </div>
+</div>

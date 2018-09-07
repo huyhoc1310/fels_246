@@ -25,4 +25,6 @@ class User < ApplicationRecord
                          confirmation_token: nil)
     user
   end
+
+  enum role: [:user, :admin]
 end

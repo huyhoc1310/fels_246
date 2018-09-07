@@ -1,0 +1,17 @@
+<div class="col-lg-4">
+  <div class="card card-lift--hover shadow border-0 mt-5">
+    <div class="card-body py-4">
+      <h5 class="text-primary text-uppercase"><%= category.name %></h5>
+      <p class="description mt-3"><%= category.description %></p>
+      <% if current_user.admin? %>
+        <div class="text-right">
+          <%= link_to t(".edit"), [:edit, :admin, category], remote: true,  class: "badge badge-pill badge-success"%>
+          <%= link_to t(".delete"), [:admin, category], remote: true,
+            method: :delete, data: {confirm: t(".you_sure")},
+            class: "badge badge-pill badge-danger" %>
+        </div>
+      <% end %>
+      <%= link_to t(".learn_more"), "#", class: "btn btn-sm btn-primary mt-4"%>
+    </div>
+  </div>
+</div>

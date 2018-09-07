@@ -1,0 +1,33 @@
+<div id="product-modal" class="modal fade"></div>
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 shape-primary">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container pt-lg-md">
+    <% if current_user.admin? %>
+      <div class="row justify-content-center">
+        <%= link_to new_admin_category_path, remote: true,
+          class: "btn btn-outline-success col-lg-3" do %>
+          <span class="btn-inner--icon">
+            <i class="fa fa-plus" data-toggle="tooltip" title="New category"></i>
+          </span>
+          <%= t ".add_category" %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="row row-grid">
+          <%= render @categories %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

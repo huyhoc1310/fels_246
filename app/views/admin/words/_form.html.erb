@@ -1,0 +1,43 @@
+<%= form_for [:admin, @word], remote: true do |f| %>
+  <div class="modal-body">
+    <%= f.label :word, class: "text-default lead" %>
+    <%= f.text_field :name, required: true, class: "form-control",
+                     autofocus: true %>
+
+    <%= f.label :meaning, class: "text-default lead" %>
+    <%= f.text_area :meaning, required: true, class: "form-control",
+                    autofocus: true %>
+
+    <%= f.label :category, class: "text-default lead" %>
+    <%= f.collection_select :category_id, @categories,
+                            :id, :name, {prompt: "Select category"}, required: true,
+                            class: "form-control" %>
+
+    <%= f.label :language, class: "text-default lead" %>
+    <%= f.collection_select :language_id, @languages,
+                            :id, :name, {prompt: "Select language"}, required: true,
+                            class: "form-control" %>
+
+    <%= f.label :image, class: "text-default lead" %>
+    <br>
+    <%= f.fields_for :images do |img| %>
+      <%= img.file_field :image, accept: Settings.image_format %>
+    <% end %>
+    <br>
+
+    <%= f.label :answers, class: "text-default lead" %>
+    <%= f.fields_for :answers do |ff| %>
+      <div>
+        <%= ff.label :content %>
+        <%= ff.text_field :content %>
+        <%= ff.check_box :is_correct %>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t("admin.words.form.cancel"), class: "btn btn-danger text-default col-md-3",
+                 data: {dismiss: "modal"} %>
+    <%= f.submit t("admin.words.form.create"), class: "btn btn-success text-default col-md-3" %>
+  </div>
+<% end %>

@@ -86,6 +86,16 @@ en:
         title: "New category"
       edit:
         title: "Edit category"
+    words:
+      save_success: "Word created successfully."
+      save_fail: "Create word failed."
+      index:
+        add_word: "Add new word"
+      form:
+        cancel: "Cancel"
+        create: "Create"
+      new:
+        title: "Add new word"
   categories:
     category:
       learn_more: "Learn more"

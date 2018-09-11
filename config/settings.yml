@@ -4,3 +4,8 @@ model:
       maximum: 50
     description:
       maximum: 150
+
+image_format: "image/jpeg,image/gif,image/png"
+image_size: [250, 250]
+answers: 4
+rows: 15

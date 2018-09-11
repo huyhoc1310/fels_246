@@ -1,9 +1,17 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :authenticate_user!
-  before_action :load_categories, only: :index
-  before_action :load_category, except: %i(index new create)
+  before_action :find_category, except: %i(index new create)
 
-  def index; end
+  def index
+    @categories = Category.all
+  end
+
+  def show
+    @words = @category.words
+    respond_to do |format|
+      format.js{render json: @words}
+    end
+  end
 
   def new
     @category = Category.new
@@ -47,11 +55,7 @@ class Admin::CategoriesController < Admin::BaseController
     params.require(:category).permit :name, :description
   end
 
-  def load_categories
-    @categories = Category.all
-  end
-
-  def load_category
+  def find_category
     @category = Category.find_by id: params[:id]
     return if @category
     flash[:danger] = t "flashs.not_found_category"

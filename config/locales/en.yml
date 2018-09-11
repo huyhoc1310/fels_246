@@ -98,6 +98,16 @@ en:
         create: "Create"
       new:
         title: "Add new word"
+    lessons:
+      success: "Lesson created successfully."
+      failure: "Create lesson failed."
+      index:
+        add_lesson: "Create new lesson"
+      form:
+        title: "New lesson"
+        create: "Create"
+        hour: "Choose hour"
+        minute: "Choose minute"
   categories:
     category:
       learn_more: "Learn more"

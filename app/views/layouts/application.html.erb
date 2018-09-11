@@ -12,9 +12,11 @@
   </head>
 
   <body>
-  <%= render "layouts/header" %>
-  <%= render "layouts/flash" %>
-    <%= yield %>
-  <%= render "layouts/footer"%>
+    <div class="alert-absolute">
+      <%= render "layouts/flash" %>
+    </div>
+    <%= render "layouts/header" %>
+      <%= yield %>
+    <%= render "layouts/footer"%>
   </body>
 </html>

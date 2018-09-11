@@ -12,6 +12,15 @@
   </div>
   <div class="container pt-lg-md">
     <div class="row justify-content-center">
+      <%= link_to new_admin_category_path, remote: true,
+        class: "btn btn-success col-lg-3" do %>
+        <span class="btn-inner--icon">
+          <i class="fa fa-plus" data-toggle="tooltip" title="New category"></i>
+        </span>
+        <%= t ".add_category" %>
+      <% end %>
+    </div>
+    <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="row row-grid">
           <%= render @categories %>

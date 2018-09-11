@@ -72,6 +72,13 @@ en:
         not_receive_confirm: "Didn't receive confirmation?"
   admin:
     categories:
+      index:
+        add_category: "Add category"
+      category:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        you_sure: "You sure?"
       form:
         cancel: "Cancel"
         create: "Submit"
@@ -80,12 +87,7 @@ en:
       edit:
         title: "Edit category"
   categories:
-    index:
-        add_category: "Add category"
     category:
-      edit: "Edit"
-      delete: "Delete"
-      you_sure: "You sure?"
       learn_more: "Learn more"
   flashs:
     create_category_success: "Create new category successlly!"

@@ -1,7 +1,10 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin!
-  before_action :load_category, except: %i(new create)
+  before_action :load_categories, only: :index
+  before_action :load_category, except: %i(index new create)
+
+  def index; end
 
   def new
     @category = Category.new
@@ -11,7 +14,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new category_params
     if @category.save
       flash[:success] = t "flashs.create_category_success"
-      redirect_to categories_url
+      redirect_to admin_categories_url
     else
       render :new
     end
@@ -22,7 +25,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     if @category.update_attributes category_params
       flash[:success] = t "flashs.category_updated"
-      redirect_to categories_url
+      redirect_to admin_categories_url
     else
       render :edit
     end
@@ -34,7 +37,7 @@ class Admin::CategoriesController < ApplicationController
     else
       flash[:danger] = t "flashs.fail_delete_category"
     end
-    redirect_to request.referrer || categories_url
+    redirect_to admin_categories_url
   end
 
   private
@@ -45,6 +48,10 @@ class Admin::CategoriesController < ApplicationController
 
   def verify_admin!
     redirect_to root_url unless current_user.admin?
+  end
+
+  def load_categories
+    @categories = Category.all
   end
 
   def load_category

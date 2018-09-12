@@ -96,6 +96,13 @@ en:
         create: "Create"
       new:
         title: "Add new word"
+    lessons:
+      save_success: "Lesson created successfully."
+      save_fail: "Create lesson failed."
+      index:
+        add_lesson: "Create new lesson"
+      form:
+        title: "New lesson"
   categories:
     category:
       learn_more: "Learn more"

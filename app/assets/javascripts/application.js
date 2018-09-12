@@ -12,8 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require cocoon
 //= require_tree ../../../vendor/assets/js
+//= require_tree .
+

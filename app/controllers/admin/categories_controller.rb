@@ -3,7 +3,16 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :load_categories, only: :index
   before_action :load_category, except: %i(index new create)
 
-  def index; end
+  def index
+    @categories = Category.all
+  end
+
+  def show
+    @words = @category.words
+    respond_to do |format|
+      format.js {render json: @words}
+    end
+  end
 
   def new
     @category = Category.new

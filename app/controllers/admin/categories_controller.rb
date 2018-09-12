@@ -1,6 +1,5 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   before_action :authenticate_user!
-  before_action :verify_admin!
   before_action :load_categories, only: :index
   before_action :load_category, except: %i(index new create)
 
@@ -44,10 +43,6 @@ class Admin::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit :name, :description
-  end
-
-  def verify_admin!
-    redirect_to root_url unless current_user.admin?
   end
 
   def load_categories

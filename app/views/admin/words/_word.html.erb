@@ -1,0 +1,9 @@
+<div class="col-lg-4">
+  <div class="card card-lift--hover shadow border-0 mt-5 h-100">
+    <div class="card-body py-4">
+      <h5 class="text-primary text-uppercase"><%= word.name %></h5>
+      <p class="description mt-3"><%= word.meaning %></p>
+      <%= image_tag Image.load_words_image(word.id).first.image.url %>
+    </div>
+  </div>
+</div>

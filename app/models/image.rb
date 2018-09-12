@@ -1,4 +1,7 @@
 class Image < ApplicationRecord
-  attr_accessor :url
+  attr_accessor :image
   belongs_to :imageable, polymorphic: true, optional: true
+  mount_uploader :image, ImageUploader
+
+  scope :load_words_image, ->(word_id){where imageable_id: word_id}
 end

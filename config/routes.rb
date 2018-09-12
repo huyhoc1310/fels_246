@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
   namespace :admin do
-    resources :categories, except: [:index, :show]
+    resources :categories, except: [:show]
   end
   resources :categories, only: [:index, :show]
 end

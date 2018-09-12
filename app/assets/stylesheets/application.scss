@@ -2,6 +2,13 @@
 @import "argon";
 @import "font-awesome";
 
+.alert-absolute {
+  position: absolute;
+  right: 15px;
+  top: 70px;
+  z-index: 10;
+}
+
 .description {
   height: 80px;
 }

@@ -5,22 +5,22 @@ ruby "2.5.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.1.3"
+gem "bootstrap4-kaminari-views"
 gem "carrierwave"
+gem "cocoon"
 gem "coffee-rails", "~> 4.2"
 gem "config"
-gem "cocoon"
 gem "devise"
 gem "faker", "1.7.3"
 gem "figaro"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "kaminari"
 gem "mini_magick"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "kaminari"
-gem "bootstrap4-kaminari-views"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 gem "rails-i18n"
@@ -28,6 +28,7 @@ gem "ransack"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
+gem "uuid"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

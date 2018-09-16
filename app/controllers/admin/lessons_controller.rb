@@ -1,12 +1,15 @@
-class Admin::LessonsController < ApplicationController
+class Admin::LessonsController < Admin::BaseController
+  before_action :authenticate_user!
+
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.load_lesson_minimal
   end
 
   def new
     @lesson = Lesson.new
-    @categories = Category.all
+    @categories = Category.load_category_minimal
     @lesson_words = @lesson.lesson_words.build
+    @words = []
   end
 
   def create
@@ -18,7 +21,7 @@ class Admin::LessonsController < ApplicationController
       flash[:danger] = t "admin.lessons.save_fail"
     end
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html{redirect_to @user}
       format.js
     end
   end
@@ -27,6 +30,6 @@ class Admin::LessonsController < ApplicationController
 
   def lesson_params
     params.require(:lesson).permit :name, :time,
-      lesson_words_attributes: [:lesson_id, :word_id]
+      lesson_words_attributes: [:lesson_id, :category_id, :word_id]
   end
 end

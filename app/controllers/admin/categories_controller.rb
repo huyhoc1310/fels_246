@@ -4,13 +4,13 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, except: %i(index new create)
 
   def index
-    @categories = Category.all
+    @categories = Category.load_category_minimal
   end
 
   def show
     @words = @category.words
     respond_to do |format|
-      format.js {render json: @words}
+      format.js{render json: @words}
     end
   end
 

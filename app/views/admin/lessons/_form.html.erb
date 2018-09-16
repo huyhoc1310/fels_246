@@ -10,17 +10,25 @@
       <div class="card-body px-lg-5 py-lg-5">
         <%= f.fields_for :lesson_words do |builder| %>
           <div class="container-fluid">
-            <%= render "lesson_words_fields", f: builder %>
-            <br>
-            <br>
             <div class="row justify-content-center">
-              <button type="button" class="btn btn-primary" id="add_word">Add more word</button>
+              <%= render "lesson_word_fields", f: builder %>
+            </div>
+            <br>
+          </div>
+          <div class="container-fluid">
+            <div class="row justify-content-center">
               <div class="links">
-                <%= link_to_add_association "Add more word", f, :lesson_words %>
+                <%= link_to_add_association "Add more word", f, :lesson_words,
+                                            class: "btn btn-primary btn-add-word" %>
               </div>
             </div>
-          </div>
-      <% end %>
+        <% end %>
+        <br>
+        <br>
+        <div class="row justify-content-center">
+          <%= f.submit "Create", class: "btn btn-primary" %>
+        </div>
+        </div>
       </div>
     </div>
   </div>

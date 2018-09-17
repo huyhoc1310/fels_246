@@ -69,13 +69,17 @@ ActiveRecord::Schema.define(version: 2018_09_06_043016) do
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
+    t.integer "notified_by_id"
     t.bigint "user_id"
     t.string "notifiable_type"
     t.bigint "notifiable_id"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["checked"], name: "index_notifications_on_checked"
     t.index ["notifiable_id", "notifiable_type"], name: "index_notifications_on_notifiable_id_and_notifiable_type"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 

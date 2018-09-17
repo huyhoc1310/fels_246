@@ -12,6 +12,8 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new category_params
     if @category.save
+      @notification = Admin::UserNotificationService.new(current_user).notify @category
+
       flash[:success] = t "flashs.create_category_success"
       redirect_to admin_categories_url
     else

@@ -3,19 +3,47 @@
     <div class="container">
       <button class="btn btn-1 btn-outline-success" type="button"><%= t ".brand" %></button>
       <div class="navbar-collapse collapse" id="navbar_global">
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-          <li class="nav-item mx-2">
-            <%= link_to t(".words"), root_path, class: "nav-link text-light" %>
-          </li>
-          <li class="nav-item mx-2">
-            <%= link_to t(".category"), root_path, class: "nav-link text-light" %>
-          </li>
-          <li class="nav-item mx-2">
-            <%= link_to t(".lessons"), root_path, class: "nav-link text-light" %>
-          </li>
-        </ul>
-        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <li class="nav-item mx-2">
+              <%= link_to t(".words"), root_path, class: "nav-link text-light" %>
+            </li>
+            <% if current_user.admin? %>
+              <li class="nav-item mx-2">
+                <%= link_to t(".category"), admin_categories_path, class: "nav-link text-light" %>
+              </li>
+            <% else %>
+              <li class="nav-item mx-2">
+                <%= link_to t(".category"), categories_path, class: "nav-link text-light" %>
+              </li>
+            <% end %>
+            <li class="nav-item mx-2">
+              <%= link_to t(".lessons"), root_path, class: "nav-link text-light" %>
+            </li>
+          </ul>
+          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+            <li class="dropdown">
+              <%= link_to "#", id: "noti-count", data: {toggle: "dropdown"} do %>
+                <i class="fa fa-bell">
+                  <sup class="badge badge-pill badge-danger" >
+                    <%= current_user.notifications.num_uncheck %>
+                  </sup>
+                </i>
+              <% end %>
+              <ul class="dropdown-menu dropdown-notification scrollable-menu">
+                <% current_user.notifications.uncheck.each do |noti| %>
+                  <li class="dropdown-item noti-item">
+                    <%= link_to noti.content, checked_notification_path(noti.id),
+                      method: :patch %>
+                    <div id="noti-day">
+                      <i class="fa fa-clock-o">
+                        <%= time_ago_in_words noti.updated_at %>
+                      </i>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <%= link_to edit_user_registration_path,
                 class: "btn btn-neutral btn-icon" do %>
@@ -34,7 +62,9 @@
                 <span class="nav-link-inner--text"><%= t ".logout" %></span>
               <% end %>
             </li>
-          <% else %>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <%= link_to new_user_session_path,
                 class: "btn btn-outline-success btn-icon" do %>
@@ -53,8 +83,8 @@
                 <span class="nav-link-inner--text"><%= t ".signup" %></span>
               <% end %>
             </li>
-          <% end %>
-        </ul>
+          </ul>
+        <% end %>
       </div>
     </div>
   </nav>

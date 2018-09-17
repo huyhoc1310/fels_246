@@ -4,6 +4,8 @@ class CategoriesController < ApplicationController
 
   def index; end
 
+  def show; end
+
   private
 
   def load_categories

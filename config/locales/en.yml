@@ -105,3 +105,5 @@ en:
     category_updated: "Category is updated!"
     category_deleted: "Category deleted!"
     fail_delete_category: "Delete category failed!"
+    not_found_notification: "Notification not found!"
+  content: "The system has a new category"

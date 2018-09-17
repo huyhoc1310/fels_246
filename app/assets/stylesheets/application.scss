@@ -2,6 +2,9 @@
 @import "argon";
 @import "font-awesome";
 
+$lightgray: #D3D3D3;
+$gray: #808080;
+
 .alert-absolute {
   position: absolute;
   right: 15px;
@@ -11,4 +14,12 @@
 
 .description {
   height: 80px;
+}
+
+.noti-item {
+  border-bottom: 1px solid;
+  border-color: $lightgray;
+  #noti-day {
+    color: $gray;
+  }
 }

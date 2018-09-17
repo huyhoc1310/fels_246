@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_one :image, as: :imageable, dependent: :destroy
-  has_many :notifications, as: :notifiable
+  has_many :notifications, dependent: :destroy
   has_many :activities
   has_many :user_lessons
   has_many :lessons, through: :user_lessons
@@ -27,4 +27,6 @@ class User < ApplicationRecord
   end
 
   enum role: [:user, :admin]
+
+  scope :load_users, ->(id){where.not(id: id)}
 end

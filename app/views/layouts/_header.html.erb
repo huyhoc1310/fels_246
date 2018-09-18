@@ -44,23 +44,24 @@
                 <% end %>
               </ul>
             </li>
-            <li class="nav-item d-none d-lg-block ml-lg-4">
-              <%= link_to edit_user_registration_path,
-                class: "btn btn-neutral btn-icon" do %>
-                <span class="btn-inner--icon">
-                  <i class="fa fa-user-circle mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text"><%= t ".profile" %></span>
+            <li class="nav-item d-none d-lg-block ml-lg-4 btn-group">
+              <%= link_to "#", class: "btn btn-success btn-icon dropdown-toggle",
+                :"data-toggle" => "dropdown" do %>
+                <i class="fa fa-user">&nbsp;<%= t ".account" %></i>
               <% end %>
-            </li>
-            <li class="nav-item d-none d-lg-block ml-lg-4">
-              <%= link_to destroy_user_session_path,
-                class: "btn btn-outline-info btn-icon", method: :delete do %>
-                <span class="btn-inner--icon">
-                  <i class="fa fa-sign-out mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text"><%= t ".logout" %></span>
-              <% end %>
+              <div class="dropdown-menu">
+                <%= link_to "#", class: "dropdown-item" do %>
+                  <i class="fa fa-user-circle">&nbsp;<%= t ".profile" %></i>
+                <% end %>
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <i class="fa fa-cog">&nbsp;<%= t ".settings" %></i>
+                <% end %>
+                <div class="dropdown-divider"></div>
+                <%= link_to destroy_user_session_path, class: "dropdown-item",
+                  method: :delete do %>
+                  <i class="fa fa-sign-out">&nbsp;<%= t ".logout" %></i>
+                <% end %>
+              </div>
             </li>
           </ul>
         <% else %>

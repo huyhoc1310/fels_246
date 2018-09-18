@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories, except: [:show]
-    resources :words 
+    resources :words
   end
   resources :categories, only: [:index, :show]
+
+  resources :notifications do
+    member do
+      patch "checked"
+    end
+  end
 end

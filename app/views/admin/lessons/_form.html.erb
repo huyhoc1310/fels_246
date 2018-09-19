@@ -1,0 +1,43 @@
+<%= form_for [:admin, @lesson] do |f| %>
+  <div class="col-lg-5">
+    <div class="card bg-secondary shadow border-0">
+      <div class="card-header bg-white pb-5">
+        <h1 class="lead text-center"><%= t ".title" %></h1>
+        <%= f.label :name, class: "text-default" %>
+        <%= f.text_field :name, required: true, class: "form-control",
+                         autofocus: true %>
+
+        <br>
+        <%= f.label :time, class: "text-default" %>
+        <%= f.time_select :time, required: true,
+                          prompt: {hour: t(".hour"), minute: t(".minute")},
+                          class: "form-control",
+                          autofocus: true %>
+
+        <div class="card-body px-lg-5 py-lg-5">
+          <%= f.fields_for :lesson_words do |builder| %>
+            <div class="container-fluid">
+              <div class="row justify-content-center">
+                <%= render "lesson_word_fields", f: builder %>
+              </div>
+              <br>
+            </div>
+            <div class="container-fluid">
+              <div class="row justify-content-center">
+                <div class="links">
+                  <%= link_to_add_association "Add more word", f, :lesson_words,
+                                              class: "btn btn-primary btn-add-word" %>
+                </div>
+              </div>
+          <% end %>
+          <br>
+          <br>
+          <div class="row justify-content-center">
+            <%= f.submit t(".create"), class: "btn btn-primary" %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<div class="col-lg-4">
+  <div class="card card-lift--hover shadow border-0 mt-5 h-100">
+    <div class="card-body py-4">
+      <h5 class="text-primary text-uppercase"><%= lesson.name %></h5>
+    </div>
+    <%= link_to t(".start"), new_lesson_user_lesson_path(lesson.id),
+      class: "btn btn-primary" %>
+  </div>
+</div>

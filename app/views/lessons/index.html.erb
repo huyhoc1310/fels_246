@@ -1,0 +1,14 @@
+<section class="section section-shaped section-lg">
+  <%= render "shared/br_circles" %>
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="row row-grid">
+          <%= render @lessons %>
+        </div>
+      </div>
+      <%= paginate @lessons, theme: "twitter-bootstrap-4",
+        pagination_class: "pagination" %>
+    </div>
+  </div>
+</section>

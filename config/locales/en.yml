@@ -119,3 +119,9 @@ en:
     fail_delete_category: "Delete category failed!"
     not_found_notification: "Notification not found!"
   content: "The system has a new category"
+  lessons:
+    lesson:
+      start: "Start lesson"
+  user_lesson:
+    create_success: "Lesson finished"
+    create_failure: "Save failed"

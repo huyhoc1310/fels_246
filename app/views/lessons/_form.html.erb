@@ -1,0 +1,5 @@
+<%= form_for @lesson do |f| %>
+  <%= f.fields_for :results do |builder| %>
+    <%= render "questions", f: builder %>
+  <% end %>
+<% end %>

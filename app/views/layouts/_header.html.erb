@@ -34,7 +34,7 @@
                 <% current_user.notifications.uncheck.each do |noti| %>
                   <li class="dropdown-item noti-item">
                     <%= link_to noti.content, checked_notification_path(noti.id),
-                      method: :patch %>
+                                method: :patch %>
                     <div id="noti-day">
                       <i class="fa fa-clock-o">
                         <%= time_ago_in_words noti.updated_at %>

@@ -1,0 +1,40 @@
+<section class="section section-shaped section-lg">
+  <%= render "shared/br_circles" %>
+  <div class="container pt-lg-md">
+    <%= form_for [:lesson, @user_lesson] do |f| %>
+      <%= f.hidden_field :lesson_id, value: @lesson.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <% @words.each do |word| %>
+        <div class="col-md-10 row justify-content-center">
+          <%= f.fields_for :results do |ff| %>
+            <div class="col-md-5">
+              <%= ff.hidden_field :word_id, value: word.id %>
+              <div class="card card-lift--hover shadow border-0 mt-5 h-100">
+                <div class="card-body py-4">
+                  <p class="lead mt-3"><%= word.meaning %></p>
+                  <%= image_tag Image.load_words_image(word.id).first.image.url %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <br>
+              <% word.answers.each do |answer| %>
+                <div class="row custom-control custom-radio mt-1">
+                  <%= ff.radio_button :answer_id, answer.id %>
+                  <%= ff.label :answer_content, answer.content, class: "lead text-light" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <br>
+      <% end %>
+      <br>
+      <div class="row justify-content-center">
+        <%= f.submit "submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+</section>

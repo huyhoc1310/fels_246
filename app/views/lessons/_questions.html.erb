@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <% hidden_field_tag :word_id, answer.id %>
+    <% answer.each do |word| %>
+      <div class="col-lg-5">
+        <div class="ard card-lift--hover shadow border-0 mt-5 h-100">
+          <h5 class="text-primary text-uppercase"><%= word.name %></h5>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <% word.answers.each do |answer| %>
+        <%= f.radio_button :answer_id, answer.id %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

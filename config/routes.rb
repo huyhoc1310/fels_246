@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :words
     resources :lessons
   end
+
   resources :categories, only: [:index, :show]
+  resources :lessons do
+    resources :user_lessons
+  end
 
   resources :notifications do
     member do
